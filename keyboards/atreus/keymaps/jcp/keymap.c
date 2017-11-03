@@ -38,6 +38,8 @@ enum planck_keycodes {
 // Navigation macros
 #define BWORD LCTL(KC_LEFT)
 #define FWORD LCTL(KC_RGHT)
+#define DWORD LCTL(KC_BSPC)
+#define DFWORD LCTL(KC_DEL)
 
 // Fillers to make layering more clear
 #define _______ KC_TRNS
@@ -52,47 +54,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	|------+------+------+------+------|------.,------|------+------+------+------+------|
 	|SFT/ Z|   X  |   C  |   V  |   B  | LOWER||RAISE |   K  |   M  |   ,  |   .  |SFT/ /|
 	|------+------+------+------+------|      ||      |------+------+------+------+------|
-	|  Esc | TAB  |  GUI | Alt  | BkSp |------'`------| BkSp | Ctrl |   -  |   '  | Enter|
+	|  Esc |   |  |  GUI | Alt  | SPC  |------'`------| BkSp | Ctrl |   -  |   '  | Enter|
 	`----------------------------------'              `----------------------------------'*/
   [_COLEMAK] = {
     {KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    XXXXXXX, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN},
     {KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    XXXXXXX, KC_H,    KC_N,    KC_E,    KC_I,    KC_O   },
     {SFTZED,  KC_X,    KC_C,    KC_V,    KC_B,    LOWER,   KC_K,    KC_M,    KC_COMM, KC_DOT,  SFTSLSH},
-    {KC_ESC,  KC_TAB,  KC_LGUI, TABALT,  KC_SPC,  RAISE,   KC_BSPC, KC_LCTL, KC_MINS, KC_QUOT, KC_ENT }
+    {KC_ESC,  KC_PIPE, KC_LGUI, TABALT,  KC_SPC,  RAISE,   KC_BSPC, KC_LCTL, KC_MINS, KC_QUOT, KC_ENT }
   },
 
 /* LOWER Layer
    ,----------------------------------.              ,----------------------------------.
    |   1  |   2  |   3  |   4  |   5  |              |   6  |   7  |   8  |   9  |   /  |
    |------+------+------+------+------|              |------+------+------+------+------|
-   | CAPS | BWORD|  UP  | FWORD| Home |              | PgDn |   4  |   5  |   6  |   *  |
+   | DWORD| BWORD|  UP  | FWORD| Home |              | PgDn |   4  |   5  |   6  |   *  |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
    |      | Left | Down | Right| End  |      ||      | PgUp |   1  |   2  |   3  |   -  |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
-   |   `  |      |      |      | Del  |------'`------| Ins  |   0  |   .  |   =  |   +  |
+   |   `  | CAPS |      |DFWORD|      |------'`------| Ins  |   0  |   .  |   =  |   +  |
    `----------------------------------'              `----------------------------------'*/
   [_LOWER] = {
 	  {KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_SLSH},
-	  {KC_CAPS, BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, KC_4,    KC_5,    KC_6,    KC_ASTR},
+	  {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, KC_4,    KC_5,    KC_6,    KC_ASTR},
 	  {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_PGDN, KC_1,    KC_2,    KC_3,    KC_MINS},
-	  {KC_GRV,  _______, _______, _______, KC_DEL,  _______, KC_INS,  KC_0,    KC_DOT,  KC_EQL,  KC_PLUS}
+	  {KC_GRV,  KC_CAPS, _______, DFWORD,  _______, _______, KC_INS,  KC_0,    KC_DOT,  KC_EQL,  KC_PLUS}
   },
 
 /* RAISE Layer
         ,----------------------------------.              ,----------------------------------.
         |   !  |   @  |   #  |   $  |   %  |              |   ^  |   &  |   *  |   (  |   )  |
         |------+------+------+------+------|              |------+------+------+------+------|
-        | CAPS | BWORD|  UP  | FWORD| Home |              | PgDn |      |   +  |   {  |   }  |
+        | DWORDD BWORD|  UP  | FWORD| Home |              | PgDn |   [  |   ]  |   {  |   }  |
         |------+------+------+------+------|------.,------|------+------+------+------+------|
-        |      | Left | Down | Right| End  |      ||      | PgUp | Mute | Vol- | Vol+ |      |
+        |      | Left | Down | Right| End  |      ||      | PgUp | Mute | Vol- | Vol+ |   \  |
         |------+------+------+------+------|      ||      |------+------+------+------+------|
-        |   ~  |      |      |      | Del  |------'`------| Ins  |      |      |      |      |
+        |   ~  | CAPS |      |DFWORD| Del  |------'`------| Ins  |      |      |      |      |
 	`----------------------------------'              `----------------------------------'*/
   [_RAISE] = {
     {KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, XXXXXXX, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN},
-    {KC_CAPS, BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, _______, KC_PLUS, KC_LCBR, KC_RCBR},
-    {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_PGDN, KC_MUTE, KC_VOLD, KC_VOLU, _______},
-    {KC_TILD, _______, _______, _______, KC_DEL,  _______, KC_INS,  _______, _______, _______, _______}
+    {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR},
+    {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_PGDN, KC_MUTE, KC_VOLD, KC_VOLU, KC_BSLS},
+    {KC_TILD, KC_CAPS, _______, DFWORD,  KC_DEL,  _______, KC_INS,  _______, _______, _______, _______}
   },
 
 /* ADJUST Layer
