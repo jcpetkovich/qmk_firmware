@@ -8,7 +8,7 @@
 
 extern keymap_config_t keymap_config;
 
-/* #define PREVENT_STUCK_MODIFIERS */
+#define PREVENT_STUCK_MODIFIERS
 
 enum atreus_layers {
 	_COLEMAK,
@@ -71,13 +71,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |------+------+------+------+------|------.,------|------+------+------+------+------|
    |      | Left | Down | Right| End  |      ||      | PgUp |   1  |   2  |   3  |   -  |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
-   |   `  | CAPS |      |DFWORD|      |------'`------| Ins  |   0  |   .  |   =  |   +  |
+   |   `  | CAPS |      |      |      |------'`------| Ins  |   0  |   .  |   =  |   +  |
    `----------------------------------'              `----------------------------------'*/
   [_LOWER] = {
 	  {KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_SLSH},
 	  {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, KC_4,    KC_5,    KC_6,    KC_ASTR},
 	  {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_PGDN, KC_1,    KC_2,    KC_3,    KC_MINS},
-	  {KC_GRV,  KC_CAPS, _______, DFWORD,  _______, _______, KC_INS,  KC_0,    KC_DOT,  KC_EQL,  KC_PLUS}
+	  {KC_GRV,  KC_CAPS, _______, _______, _______, _______, KC_INS,  KC_0,    KC_DOT,  KC_EQL,  KC_PLUS}
   },
 
 /* RAISE Layer
@@ -88,13 +88,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         |------+------+------+------+------|------.,------|------+------+------+------+------|
         |      | Left | Down | Right| End  |      ||      | PgUp | Mute | Vol- | Vol+ |   \  |
         |------+------+------+------+------|      ||      |------+------+------+------+------|
-        |   ~  | CAPS |      |DFWORD| Del  |------'`------| Ins  |      |      |      |      |
+        |   ~  | CAPS |      |      | Del  |------'`------| Ins  |      |      |      |      |
 	`----------------------------------'              `----------------------------------'*/
   [_RAISE] = {
     {KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, XXXXXXX, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN},
     {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_PGUP, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR},
     {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_PGDN, KC_MUTE, KC_VOLD, KC_VOLU, KC_BSLS},
-    {KC_TILD, KC_CAPS, _______, DFWORD,  KC_DEL,  _______, KC_INS,  _______, _______, _______, _______}
+    {KC_TILD, KC_CAPS, _______, _______, KC_DEL,  _______, KC_INS,  _______, _______, _______, _______}
   },
 
 /* ADJUST Layer
