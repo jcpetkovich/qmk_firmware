@@ -82,30 +82,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	|------+------+------+------+------|------.,------|------+------+------+------+------|
 	|SFT/ Z|   X  |   C  |   V  |   B  | LOWER||RAISE |   K  |   M  |   ,  |   .  |SFT/ /|
 	|------+------+------+------+------|      ||      |------+------+------+------+------|
-	|  Esc |   |  |  GUI | Alt  | SPC  |------'`------| BkSp | Ctrl |   -  |   '  | Enter|
+	|  Esc | HYPR |  GUI | Alt  | SPC  |------'`------| BkSp | Ctrl | GUI/-|   '  | Enter|
 	`----------------------------------'              `----------------------------------'*/
   [_COLEMAK] = {
     {KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    XXXXXXX, KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN},
     {KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    XXXXXXX, KC_H,    KC_N,    KC_E,    KC_I,    KC_O   },
-    {SFTZED,  KC_X,    KC_C,    KC_V,    KC_B,    LOWER,   KC_K,    KC_M,    KC_COMM, KC_DOT,  SFTSLSH},
-    {KC_ESC,  KC_PIPE, KC_LGUI, TABALT,  KC_SPC,  RAISE,   KC_BSPC, KC_LCTL, KC_MINS, KC_QUOT, KC_ENT }
+    {SFT_ZED, KC_X,    KC_C,    KC_V,    KC_B,    LOWER,   KC_K,    KC_M,    KC_COMM, KC_DOT,  SFT_SLS},
+    {KC_ESC,  KC_HYPR, KC_LGUI, TAB_ALT, KC_SPC,  RAISE,   KC_BSPC, KC_LCTL, GUI_MIN, KC_QUOT, KC_ENT }
   },
 
 /* LOWER Layer (number oriented)
    ,----------------------------------.              ,----------------------------------.
    | DWORD| BWORD|  UP  | FWORD| Home |              |      |   7  |   8  |   9  |   /  |
    |------+------+------+------+------|              |------+------+------+------+------|
-   |      | Left | Down | Right| End  |              |  SPC |   4  |   5  |   6  |   *  |
+   | DEL  | Left | Down | Right| End  |              |      |   4  |   5  |   6  |   *  |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
-   |      |      |      |      |   ,  |      ||      |   ,  |   1  |   2  |   3  |   -  |
+   |      |      |      |      |   ,  | ON   ||      |      |   1  |   2  |   3  |   -  |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
-   |   `  | CAPS |      |      |      |------'`------|      |   0  |   .  |   =  |   +  |
+   |      |      |      |      |      |------'`------|      | CTL/0| GUI/.| CTL/=|   +  |
    `----------------------------------'              `----------------------------------'*/
   [_LOWER] = {
-	  {KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    XXXXXXX, KC_6,    KC_7,    KC_8,    KC_9,    KC_SLSH},
-	  {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, KC_SPC,  KC_4,    KC_5,    KC_6,    KC_ASTR},
-	  {_______, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  _______, KC_COMM, KC_1,    KC_2,    KC_3,    KC_MINS},
-	  {KC_GRV,  KC_CAPS, _______, _______, _______, _______, _______, KC_0,    KC_DOT,  KC_EQL,  KC_PLUS}
+	  {DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, _______, KC_7,    KC_8,    KC_9,    KC_SLSH},
+	  {KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  XXXXXXX, _______, KC_4,    KC_5,    KC_6,    KC_ASTR},
+	  {_______, _______, _______, _______, KC_COMM, _______, _______, KC_1,    KC_2,    KC_3,    SFT_MIN},
+	  {_______, _______, _______, _______, _______, _______, _______, CTL_ZER, GUI_DOT, ALT_EQL, KC_PLUS}
   },
 
 /* RAISE Layer (symbol oriented)
