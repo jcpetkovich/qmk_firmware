@@ -8,7 +8,9 @@
 
 extern keymap_config_t keymap_config;
 
+// CONFIGURATION
 #define PREVENT_STUCK_MODIFIERS
+#define TAPPING_TERM 150
 
 enum atreus_layers {
 	_COLEMAK,
