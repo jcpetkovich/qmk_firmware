@@ -30,13 +30,22 @@ enum planck_keycodes {
 };
 
 // Adding macros to make the keymaps below much easier to read.
-#define SFTSCLN SFT_T(KC_SCLN)
-#define SFTSLSH SFT_T(KC_SLSH)
-#define SFTBSLS SFT_T(KC_BSLS)
-#define SFTZED SFT_T(KC_Z)
-#define ALTENT ALT_T(KC_ENT)
-#define ESCTRL CTL_T(KC_ESC)
-#define TABALT ALT_T(KC_TAB)
+#define SFT_SCLN SFT_T(KC_SCLN)
+#define SFT_SLS SFT_T(KC_SLSH)
+#define SFT_BSL SFT_T(KC_BSLS)
+#define SFT_ZED SFT_T(KC_Z)
+#define ALT_ENT ALT_T(KC_ENT)
+#define TAB_ALT ALT_T(KC_TAB)
+
+// Top layer macros
+#define GUI_MIN GUI_T(KC_MINS)
+#define ALT_QUO ALT_T(KC_QUOT)
+
+// Number layer macros
+#define CTL_ZER CTL_T(KC_0)
+#define GUI_DOT GUI_T(KC_DOT)
+#define ALT_EQL ALT_T(KC_EQL)
+#define SFT_MIN SFT_T(KC_MINS)
 
 // Navigation macros
 #define BWORD LCTL(KC_LEFT)
