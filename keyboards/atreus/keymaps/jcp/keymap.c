@@ -53,6 +53,22 @@ enum planck_keycodes {
 #define DWORD LCTL(KC_BSPC)
 #define DFWORD LCTL(KC_DEL)
 
+// hyper window manager macros
+#define GUI_NOR HYPR(KC_UP)
+#define GUI_SOU HYPR(KC_DOWN)
+#define GUI_EAS HYPR(KC_RGHT)
+#define GUI_WES HYPR(KC_LEFT)
+// colemak letter/arrows */
+//   u
+// n e i
+#define GUI_NES HYPR(KC_U)
+#define GUI_SES HYPR(KC_E)
+#define GUI_NWE HYPR(KC_I)
+#define GUI_SWE HYPR(KC_N)
+// float/tile/pseudotile all
+#define GUI_FLO HYPR(KC_F)
+#define GUI_TIL HYPR(KC_T)
+
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
