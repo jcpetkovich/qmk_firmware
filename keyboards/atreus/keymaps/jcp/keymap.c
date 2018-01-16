@@ -11,7 +11,7 @@ extern keymap_config_t keymap_config;
 // CONFIGURATION
 #define PERMISSIVE_HOLD
 #define PREVENT_STUCK_MODIFIERS
-#define TAPPING_TERM 200
+#define TAPPING_TERM 100
 
 enum atreus_layers {
 	_COLEMAK,
@@ -142,11 +142,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		{_______, _______, _______, _______, _______, _______, KC_INS,  KC_LCTL, KC_LGUI, KC_LALT, _______}
 	},
 
-/* RAISE Layer (symbol oriented)
+/* RAISE Layer (WM oriented)
 
-   The raise layer is for symbols, but that's somewhat unfortunate as we already
-   have a layer for symbols. This could end up being a "hyperspace" layer like I
-   was planning for the tri-layer.
+   The raise layer is for manual window management keys, particularly for
+   floating window managers where you have a lot of control over where things
+   go.
 
    ,----------------------------------.              ,----------------------------------.
    |      |      |  MWU |      |      |              |      |  WNW |  WN  |  WNE |      |
