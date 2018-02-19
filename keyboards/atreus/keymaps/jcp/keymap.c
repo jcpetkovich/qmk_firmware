@@ -5,6 +5,7 @@
 #include "atreus.h"
 #include "action_layer.h"
 #include "eeconfig.h"
+#include <jcmacros.h>
 
 extern keymap_config_t keymap_config;
 
@@ -35,66 +36,6 @@ enum planck_keycodes {
 #define NUMBERS LT(_NUMBERS, KC_X)
 #define SYMBOLS LT(_SYMBOLS, KC_DOT)
 
-// Fillers to make layering more clear
-#define _______ KC_TRNS
-#define XXXXXXX KC_NO
-
-// Adding macros to make the keymaps below much easier to read.
-#define SFT_SCLN SFT_T(KC_SCLN)
-#define SFT_SLS SFT_T(KC_SLSH)
-#define SFT_BSL SFT_T(KC_BSLS)
-#define SFT_ZED SFT_T(KC_Z)
-#define ALT_ENT ALT_T(KC_ENT)
-#define ALT_TAB ALT_T(KC_TAB)
-
-// Top layer macros
-#define GUI_MIN GUI_T(KC_MINS)
-#define ALT_QUO ALT_T(KC_QUOT)
-
-// Number layer macros
-#define CTL_ZER CTL_T(KC_0)
-#define GUI_DOT GUI_T(KC_DOT)
-#define ALT_EQL ALT_T(KC_EQL)
-#define SFT_MIN SFT_T(KC_MINS)
-#define ALTTAB  LALT(KC_TAB)
-
-// Navigation macros
-#define BWORD LCTL(KC_LEFT)
-#define FWORD LCTL(KC_RGHT)
-#define DWORD LCTL(KC_BSPC)
-#define DFWORD LCTL(KC_DEL)
-
-// hyper window manager macros
-#define GUI_NOR HYPR(KC_UP)
-#define GUI_SOU HYPR(KC_DOWN)
-#define GUI_EAS HYPR(KC_RGHT)
-#define GUI_WES HYPR(KC_LEFT)
-// colemak letter/arrows */
-//   u
-// n e i
-#define GUI_NES HYPR(KC_U)
-#define GUI_SES HYPR(KC_E)
-#define GUI_NWE HYPR(KC_I)
-#define GUI_SWE HYPR(KC_N)
-// float/tile/pseudotile all
-#define GUI_FLO HYPR(KC_F)
-#define GUI_TIL HYPR(KC_T)
-
-#define GUI_LFT LGUI(KC_H)
-#define GUI_RGT LGUI(KC_L)
-#define GUI_UP  LGUI(KC_K)
-#define GUI_DWN LGUI(KC_J)
-
-// desktops
-#define GUI_D1  LGUI(KC_1)
-#define GUI_D2  LGUI(KC_2)
-#define GUI_D3  LGUI(KC_3)
-#define GUI_D4  LGUI(KC_4)
-#define GUI_D5  LGUI(KC_5)
-#define GUI_D6  LGUI(KC_6)
-#define GUI_D7  LGUI(KC_7)
-#define GUI_D8  LGUI(KC_8)
-#define GUI_D9  LGUI(KC_9)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Colemak Layer
@@ -127,18 +68,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    otherwise.
 
    ,----------------------------------.              ,----------------------------------.
-   | DWORD| BWORD|  UP  | FWORD| Home |              |      | Dsk7 | Dsk8 | Dsk9 |      |
+   | DWORD| BWORD|  UP  | FWORD| Home |              |      |      |      |      |      |
    |------+------+------+------+------|              |------+------+------+------+------|
-   | DEL  | Left | Down | Right| End  |              | PgUp | Dsk4 | Dsk5 | Dsk6 |      |
+   | DEL  | Left | Down | Right| End  |              | PgUp |      |      |      |      |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
-   |      |      | ALTTB|   ,  |      | ON   ||      | PgDn | Dsk1 | Dsk2 | Dsk3 |      |
+   |      | CUT  | COPY | PASTE|      | ON   ||      | PgDn |      |      |      | SWSP |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
    |      |      |      |      |      |------'`------| Ins  | Ctrl | GUI  | Alt  |      |
    `----------------------------------'              `----------------------------------'*/
 	[_LOWER] = {
-		{DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, _______, GUI_D7,  GUI_D8,  GUI_D9,  _______},
-		{KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  XXXXXXX, KC_PGUP, GUI_D4,  GUI_D5,  GUI_D6,  _______},
-		{_______, _______, ALTTAB,  KC_COMM, _______, _______, KC_PGDN, GUI_D1,  GUI_D2,  GUI_D3,  _______},
+		{DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, _______, _______, _______, _______, _______},
+		{KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  XXXXXXX, KC_PGUP, _______, _______, _______, _______},
+		{_______, CUT,     COPY,    PASTE,   _______, _______, KC_PGDN, _______, _______, _______, SHR_WSP},
 		{_______, _______, _______, _______, _______, _______, KC_INS,  KC_LCTL, KC_LGUI, KC_LALT, _______}
 	},
 
@@ -153,14 +94,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |------+------+------+------+------|              |------+------+------+------+------|
    |      |  MWL |  MWD |  MWR |      |              |      |  WW  |  WC  |  WE  |      |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
-   |      |      |      |      |      |      || ON   |      |  WSW |  WS  |  WSE |      |
+   |      | FLOAT| TILE |      |      |      || ON   |      |  WSW |  WS  |  WSE |      |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
    |      |      |      |      |      |------'`------|      |      |      |      |      |
    `----------------------------------'              `----------------------------------'*/
 	[_RAISE] = {
 		{_______, _______, GUI_UP,  _______, _______, XXXXXXX, _______, GUI_NWE, GUI_NOR, GUI_NES, _______},
-		{_______, GUI_LFT, GUI_DWN, GUI_RGT, _______, XXXXXXX, _______, GUI_WES, _______, GUI_EAS, _______},
-		{_______, _______, _______, _______, _______, _______, _______, GUI_SWE, GUI_SOU, GUI_SES, _______},
+		{_______, GUI_LFT, GUI_DWN, GUI_RGT, _______, XXXXXXX, _______, GUI_WES, GUI_CEN, GUI_EAS, _______},
+		{_______, GUI_FLO, GUI_TIL, _______, _______, _______, _______, GUI_SWE, GUI_SOU, GUI_SES, _______},
 		{_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______}
 	},
 
@@ -195,7 +136,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		{_______, _______, _______, _______, _______, XXXXXXX, _______, KC_7,    KC_8,    KC_9,    KC_SLSH},
 		{_______, _______, _______, _______, _______, XXXXXXX, _______, KC_4,    KC_5,    KC_6,    KC_ASTR},
 		{_______, _______, ALTTAB,  KC_COMM, _______, _______, _______, KC_1,    KC_2,    KC_3,    SFT_MIN},
-		{_______, _______, _______, _______, _______, _______, _______, CTL_ZER, GUI_DOT, ALT_EQL, KC_PLUS}
+		{_______, _______, _______, _______, _______, _______, _______, CTL_ZER, GUI_DOT, KC_EQL,  KC_PLUS}
 	},
 
 /* SYMBOLS Layer
