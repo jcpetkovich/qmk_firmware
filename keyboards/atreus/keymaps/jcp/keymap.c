@@ -10,7 +10,7 @@
 extern keymap_config_t keymap_config;
 
 // CONFIGURATION
-#define PERMISSIVE_HOLD
+/* #define PERMISSIVE_HOLD */
 #define PREVENT_STUCK_MODIFIERS
 #define TAPPING_TERM 150
 
@@ -68,18 +68,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    otherwise.
 
    ,----------------------------------.              ,----------------------------------.
-   | DWORD| BWORD|  UP  | FWORD| Home |              |      |      |      |      |      |
+   | DWORD| BWORD|  UP  | FWORD| Home |              |      |      |      |      | SWSP |
    |------+------+------+------+------|              |------+------+------+------+------|
    | DEL  | Left | Down | Right| End  |              | PgUp |      |      |      |      |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
-   |      | CUT  | COPY | PASTE|      | ON   ||      | PgDn |      |      |      | SWSP |
+   |      | CUT  | COPY | PASTE|      | ON   ||      | PgDn |      |      |      |      |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
    |      |      |      |      |      |------'`------| Ins  | Ctrl | GUI  | Alt  |      |
    `----------------------------------'              `----------------------------------'*/
 	[_LOWER] = {
-		{DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, _______, _______, _______, _______, _______},
+		{DWORD,   BWORD,   KC_UP,   FWORD,   KC_HOME, XXXXXXX, _______, _______, _______, _______, SHR_WSP},
 		{KC_DEL,  KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  XXXXXXX, KC_PGUP, _______, _______, _______, _______},
-		{_______, CUT,     COPY,    PASTE,   _______, _______, KC_PGDN, _______, _______, _______, SHR_WSP},
+		{_______, CUT,     COPY,    PASTE,   _______, _______, KC_PGDN, _______, _______, _______, _______},
 		{_______, _______, _______, _______, _______, _______, KC_INS,  KC_LCTL, KC_LGUI, KC_LALT, _______}
 	},
 
@@ -109,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ,----------------------------------.              ,----------------------------------.
    |  F1  |  F2  |  F3  |  F4  |  F5  |              |  F6  |  F7  |  F8  |  F9  | F10  |
    |------+------+------+------+------|              |------+------+------+------+------|
-   |  F11 |      |      |      |      |              |      | PrSc | ScLk | Paus | F12  |
+   |  F11 | Next | Vol- | Vol+ | Play |              |      | PrSc | ScLk | Paus | F12  |
    |------+------+------+------+------|------.,------|------+------+------+------+------|
    |      |      |      |      |      | ON   || ON   |      |      |      |      |      |
    |------+------+------+------+------|      ||      |------+------+------+------+------|
@@ -117,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    `----------------------------------'              `----------------------------------'*/
 	[_ADJUST] = {
 		{KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   XXXXXXX, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10 },
-		{KC_F11,  _______, _______, _______, _______, XXXXXXX, _______, KC_PSCR, KC_SLCK, KC_PAUS, KC_F12 },
+		{KC_F11,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY, XXXXXXX, _______, KC_PSCR, KC_SLCK, KC_PAUS, KC_F12 },
 		{_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
 		{_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RESET  }
 	},
