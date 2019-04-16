@@ -10,7 +10,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_BL] = KEYMAP(
   ESC,  Q,    W,    F,    P,    G,    J,    L,    U,    Y,    SCLN,   BSPC,
   TAB,   A,    R,    S,    T,    D,    H,    N,    E,    I,    O,
-  LSFT,   Z,    X,    C,    V,    B,    K,    M,    COMM, DOT,  SLSH,
+  LSFT,   Z,    X,    C,    V,    B,    K,    M,  COMM, DOT,  SLSH,
   FN0,  LGUI, LALT, ___,  ___,  ___,  ___,  LCTL, QUOT, ENT   ),
 
 	[_AL] = KEYMAP(
